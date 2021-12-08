@@ -1,0 +1,111 @@
+﻿@model Unipet.Models.Empresa
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+            <div class="app-card alert alert-dismissible shadow-sm mb-4" role="alert">
+                <div class="inner">
+                    <div class="app-card-body p-3 p-lg-4">
+                        <a asp-action="Index" style="padding-left: 20px; float: right"> <i class="fas fa-reply"></i> Voltar</a>
+                        <h4 class="mb-3">Adicionar empresa</h4>
+                        <div class="row gx-5 gy-3">
+                            <div class="col-lg-12 mt-3">
+                                <form asp-action="Create">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12 mb-3">
+                                            <div class="form-group">
+                                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                <div class="form-group">
+                                                    <label asp-for="RazaoSocial" class="control-label"></label>
+                                                    <input asp-for="RazaoSocial" class="form-control" />
+                                                    <span asp-validation-for="RazaoSocial" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-xs-12 mb-3">
+                                            <div class="form-group">
+                                                <label asp-for="CNPJ" class="control-label"></label>
+                                                <input asp-for="CNPJ" class="form-control" />
+                                                <span asp-validation-for="CNPJ" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-xs-12 mb-3">
+                                            <div class="form-group">
+                                                <label asp-for="Email" class="control-label"></label>
+                                                <input asp-for="Email" class="form-control" />
+                                                <span asp-validation-for="Email" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-xs-12 mb-3">
+                                            <div class="form-group">
+                                                <label asp-for="Fone" class="control-label"></label>
+                                                <input asp-for="Fone" class="form-control" />
+                                                <span asp-validation-for="Fone" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label asp-for="IdEndereco" class="control-label"></label>
+                                                <input asp-for="IdEndereco" class="form-control" asp-items="ViewBag.IdEndereco" />
+                                                <span asp-validation-for="IdEndereco" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label asp-for="IdUsuario" class="control-label"></label>
+                                                <input asp-for="IdUsuario" class="form-control" asp-items="ViewBag.IdEndereco" />
+                                                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--next-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12 mb-3 mt-3">
+                                            <div class="form-group">
+                                                <label asp-for="Logotipo" class="control-label"></label>
+                                                <input type="file" asp-for="Logotipo" class="form-control-file" accept=".jpg,.jpeg,.png,.gif" />
+                                                <span asp-validation-for="Logotipo" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Ativo?-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12 mt-4 mb-5">
+                                            <div class="form-group form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" asp-for="ExibirHome" /> @Html.DisplayNameFor(model => model.ExibirHome)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="form-group">
+                                            <input type="submit" value="Adicionar tutor" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

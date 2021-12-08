@@ -1,0 +1,299 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+<header>
+    <!-- banners -->
+    <div class="slider-wrapper">
+        <section class="slider-section">
+            <div class="slider-active slick-style">
+                <div class="single-slider img-bg" style="background-image:url(@Url.Content("~/img/slider-1.jpg"));">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-7 col-lg-8 col-md-10">
+                                <div class="slider-content">
+                                    <h1 data-animation="fadeInDown" data-duration="3.1s" data-delay=".9s">
+                                        Ajudamos você a encontrar o melhor <span class="dest"> plano de saúde </span> para o seu pet.
+                                    </h1>
+                                    <a asp-controller="Home" asp-action="Planos" class="btn theme-btn" data-animation="fadeInUp" data-duration="3.1s"
+                                       data-delay=".9s">Encontre</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-slider img-bg" style="background-image:url(@Url.Content("~/img/slider-2.jpg"));">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-7 col-lg-8 col-md-10">
+                                <div class="slider-content">
+                                    <h1 data-animation="fadeInDown" data-duration="3.1s" data-delay=".9s">
+                                        <span class="dest">Valorize seu tempo! </span> <br /> Sua pesquisa resumida em poucos minutos.
+                                    </h1>
+                                    <a asp-controller="Home" asp-action="Planos" class="btn theme-btn" data-animation="fadeInUp" data-duration="3.1s"
+                                       data-delay=".9s">Pesquise</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-slider img-bg" style="background-image:url(@Url.Content("~/img/slider-3.jpg"));">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-7 col-lg-8 col-md-10">
+                                <div class="slider-content">
+                                    <h1 data-animation="fadeInDown" data-duration="3s" data-delay=".9s">
+                                        A <span class="dest"> Saúde do pet </span> é nossa prioridade! <br />
+                                        Conheça os valores que nos move
+                                    </h1>
+                                    <a asp-controller="Home" asp-action="Sobre" class="btn theme-btn" data-animation="fadeInUp" data-duration="1.5s"
+                                       data-delay=".9s">Nossos serviços</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</header>
+
+<!--====================== sobre Unipet ======================= -->
+<section id="services" class="service-section mt-55">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 mx-auto">
+                <div class="section-title text-center mb-55">
+                    <span class="wow fadeInDown" data-wow-delay=".2s"> Por que escolher? </span>
+                    <h2 class="mb-15 wow fadeInUp" data-wow-delay=".4s"> UNIPET </h2>
+                </div>
+            </div>
+        </div>
+        <!-- cards -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item mb-30">
+                    <div class="service-icon mb-25"> <i class="fas fa-shopping-basket"></i> </div>
+                    <div class="service-content">
+                        <h4> Facilidade </h4>
+                        <p> Você tem acesso a todos os planos de saúde pet em um só lugar </p>
+                    </div>
+                    <div class="service-overlay img-bg"></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item mb-30">
+                    <div class="service-icon mb-25"> <i class="fas fa-piggy-bank"></i> </div>
+                    <div class="service-content">
+                        <h4> Descontos </h4>
+                        <p> A economia que você precisa e a proteção que o seu pet merece! </p>
+                    </div>
+                    <div class="service-overlay img-bg"></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item mb-30">
+                    <div class="service-icon mb-25"> <i class="fas fa-hand-holding-heart"></i></div>
+                    <div class="service-content">
+                        <h4> Melhor cuidado </h4>
+                        <p> Compare os planos e contrate aquele que for o ideal para seu pet. </p>
+                    </div>
+                    <div class="service-overlay img-bg"></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item mb-30">
+                    <div class="service-icon mb-25"> <i class="fas fa-smile-beam"></i> </div>
+                    <div class="service-content">
+                        <h4> Tranquilidade </h4>
+                        <p> Você e o seu pet merecem todo cuidado para serem felizes. </p>
+                    </div>
+                    <div class="service-overlay img-bg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== contrate agora ===================== -->
+<section id="about" class="about-section mt-55">
+    <div class="shape shape-2">
+        <img src="@Url.Content("~/img/shapes/shape-2.svg")">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 col-lg-11 mx-auto">
+                <div class="about-content text-center mb-55">
+                    <div class="section-title mb-25">
+                        <span class="wow fadeInDown" data-wow-delay=".2s">Adquira!</span>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Contrate agora o plano ideal para seu pet</h2>
+                    </div>
+                    <p class="wow fadeInUp" data-wow-delay=".6s">
+                        Temos diversas opções de planos para que você opte pelas especialidades que seu pet precisa no melhor preço.
+                    </p>
+                    <a asp-controller="Home" asp-action="Planos" class="btn theme-btn wow fadeInUp mt-25" data-wow-delay=".8s">Nossos Planos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--====================== como funciona ====================== -->
+<section class="faq-section theme-bg">
+    <div class="faq-video-wrapper">
+        <div class="faq-video">
+            <img src="@Url.Content("~/img/faq-img.jpg")">
+        </div>
+    </div>
+    <div class="shape">
+        <img src="@Url.Content("~/img/shapes/shape-8.svg")" alt="" class="shape-faq">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 offset-xl-6 col-lg-8 col-md-10">
+                <div class="faq-content-wrapper mt-55 mb-55">
+                    <div class="section-title">
+                        <span class="text-white wow fadeInDown" data-wow-delay=".2s">Perguntas frequentes</span>
+                        <h2 class="text-white mb-30 wow fadeInUp" data-wow-delay=".4s">Como funciona? </h2>
+                    </div>
+                    <div class="faq-wrapper accordion" id="accordionExample">
+                        <div class="faq-item mb-25">
+                            <div id="headingOne">
+                                <h5>
+                                    <button class="faq-btn btn" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                            aria-expanded="true" aria-controls="collapseOne">
+                                        Escolha seu plano <i class="lni"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                 data-parent="#accordionExample">
+                                <div class="faq-content">
+                                    São inúmeras opções de planos. Busque por parceiros,
+                                    faixa de valores, área de cobertura.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item mb-25">
+                            <div id="headingTwo">
+                                <h5>
+                                    <button class="faq-btn btn collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        Contrate online <i class="lni"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="faq-content">
+                                    A contratação do Plano é feita diretamente pelo site.
+                                    De onde você estiver, é simples, prático e totalmente seguro.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item mb-25">
+                            <div id="headingThree">
+                                <h5>
+                                    <button class="faq-btn btn collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                        Confirmação <i class="lni"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="faq-content">
+                                    Sua solicitação será encaminhada ao nosso parceiro que
+                                    entrará em contato com você.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div id="headingFour">
+                                <h5>
+                                    <button class="faq-btn btn collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                        Seu pet seguro e protegido <i class="lni"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                <div class="faq-content">
+                                    Pronto! Você cuidando do seu pet o tanto que ele cuida de você.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== fique por dentro ==================== -->
+<section class="subscribe-section mt-55 mb-55">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="section-title">
+                    <h2 class="mb-25">Inscreva-se!</h2>
+                    <p class="mb-30">
+                        Quer saber mais sobre como garantir a saúde do seu animal? <br />
+                        Assine nossa newsletter e fique atualizado sobre novidades, dicas e muito mais!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="subscribe-wrapper">
+                    <form id="formNews" method="post" class="subscribe-from">
+                        @*<input type="email" name="subscribe" id="subscribe" placeholder="Digite seu e-mail">*@
+                        <input id="subscribe" type="email" name="email" required>
+                        <button type="submit" value="" onclick="alertNewsletter()" class="btn theme-btn">Inscreva-se</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+</section>
+
+<!-- ========================== blog ========================== -->
+<section id="blog" class="blog-section mt-55 mb-55">
+    <div class="shape shape-7">
+        <img src="@Url.Content("~/img/shapes/shape-journal.svg")" alt="" width="350">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 mx-auto">
+                <div class="section-title text-center mb-55">
+                    <span class="wow fadeInDown" data-wow-delay=".2s">Blog</span>
+                    <h2 class="mb-15 wow fadeInUp" data-wow-delay=".4s">Últimas notícias</h2>
+                    <p class="wow fadeInUp" data-wow-delay=".4s">
+                        Confira as últimas novidades sobre o mundo Pet e Saúde animal
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            @foreach (var blog in ViewBag.Blogs)
+            {
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single-blog mb-30 wow fadeInUp" data-wow-delay=".2s">
+                        <div class="blog-img">
+                            <a href="#">
+                                <img src="@Url.Content(blog.Foto)" alt="">
+                            </a>
+                        </div>
+                        <div class="blog-content">
+                            <h4><a href="#">@blog.Titulo</a></h4>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

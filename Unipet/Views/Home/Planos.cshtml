@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Unipet.Models.Plano>
+@{
+    ViewData["Title"] = "Planos";
+}
+<!-- divisao -->
+<div class="slider-wrapper">
+    <section class="slider-section">
+        <div class="slider-active slick-style">
+            <div class="img-interna" style="background-image:url(@Url.Content("~/img/divisao.jpg"));"></div>
+        </div>
+    </section>
+</div>
+	</header>
+
+<!--======================== filtros ========================== -->
+<section id="filtros" class="service-section mt-55">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 mx-auto">
+                <div class="section-title text-center mb-55">
+                    <span class="wow fadeInDown" data-wow-delay=".2s"> Encontre o Plano de Saúde perfeito para seu Pet! </span>
+                </div>
+            </div>
+        </div>
+
+        <form id="filtrosForm" class="row">
+            <div class="col-md-3">
+                <label for="inputEmpresa" class="form-label">Empresas</label>
+                <div class="input-group">
+                    <input class="form-control" type="search" id="inputEmpresa" name="inputEmpresa" placeholder="Todas">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-success border" type="button" onclick="submitFiltros()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="inputValores" class="form-label">Faixa de Valores</label>
+                <select id="inputValores" name="inputValores" class="form-select" onchange="submitFiltros()">
+                    <option selected>Selecione</option>
+                    <option value="1">Até R$ 40,00</option>
+                    <option value="2">R$ 40,00 - R$ 70,00</option>
+                    <option value="3">R$ 70,00 - R$ 110,00</option>
+                    <option value="4">R$ Acima de R$ 110,00</option>
+                    <option value="5">Todos os valores</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="inputEspecialidade" class="form-label">Especialidade</label>
+                <select id="inputEspecialidade" name="inputEspecialidade" class="form-select" asp-items="ViewBag.Especialidade" onchange="submitFiltros()">
+                    <option>Selecione</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="inputCidade" class="form-label">Cidade</label>
+                <div class="input-group">
+                    <input class="form-control" type="search" id="inputCidade" name="inputCidade" placeholder="Todas">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-success border" type="button" onclick="submitFiltros()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<div id="partialView">
+    <partial name="_PlanosGrid" model="Model" />
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+        function submitFiltros() {
+            var data = $("#filtrosForm").serialize();
+            $.ajax({
+                type: 'GET',
+                url: '/Home/_PlanosGrid',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+                data: data,
+                success: function (result) {
+                    $("#partialView").html(result);
+                },
+                error: function () {
+                    alert('Failed to receive the Data');
+                    console.log('Failed ');
+                }
+            })
+        }
+        var input = document.getElementById("inputEmpresa");
+        input.addEventListener("keypress", function (e) {
+            if (e.keyCode === 13) {
+                submitFiltros();
+            }
+        });
+        var input2 = document.getElementById("inputCidade");
+        input2.addEventListener("keypress", function (e) {
+            if (e.keyCode === 13) {
+                submitFiltros();
+            }
+        });
+
+
+    </script>
+}

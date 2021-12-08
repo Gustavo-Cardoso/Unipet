@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "Minha Conta";
+}
+
+<section class="minhaconta mt-55 mb-55">
+    <div class="container">
+        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+            <li class="nav-item active">
+                <a class="nav-link active" href="#tutor" data-toggle="tab">Dados Pessoais</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#pet" id="pet_tab" data-toggle="tab">Meus Pets</a>
+            </li>
+        </ul>
+
+        <div id="my-tab-content" class="tab-content tab-style">
+            <!--Formulário tutor-->
+            <div class="tab-pane active" id="tutor">
+                <div class="col-md-12" style="display: flex;">
+                    <form id="cadastroTutor" class="row" action="#" method="post">
+                        <div class="col-md-3">
+                            <img src="@Url.Content("~/img/sem_foto.png")" alt="" width="350">
+                            <input type="file" id="NovaFoto" name="NovaFoto" class="form-control-file" accept=".jpg, .jpge, .png, .gif" />
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row justify-content-center">
+                                <!--dados do tutor-->
+                                <div class="mb-4"><h4> Dados do tutor </h4></div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="inputNome" class="form-label">Nome</label>
+                                    <input type="text" tabindex="1" class="form-control" id="inputNome">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="inputEmail" class="form-label">E-mail</label>
+                                    <input type="email" tabindex="2" class="form-control" id="inputEmail">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="inputCPF" class="form-label">CPF</label>
+                                    <input type="tel" tabindex="3" class="form-control" id="inputCPF">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="inputRG" class="form-label">RG</label>
+                                    <input type="email" tabindex="4" class="form-control" id="inputRG">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="inputGenero" class="form-label">Gênero</label>
+                                    <select id="inputGenero" tabindex="5" class="form-select">
+                                        <option selected>Selecione</option>
+                                        <option>Feminino</option>
+                                        <option>Masculino</option>
+                                    </select>
+                                </div>
+
+                                <!--endereço-->
+                                <div class="mb-4 mt-25"><h4> Endereço </h4></div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="inputCep" class="form-label">CEP</label>
+                                    <input type="text" tabindex="6" class="form-control" id="inputCep">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="inputBairro" class="form-label">Bairro</label>
+                                    <input type="text" tabindex="7" class="form-control" id="inputBairro">
+                                </div>
+
+                                <div class="col-md-9 mb-3">
+                                    <label for="inputEndereco" class="form-label">Logradouro</label>
+                                    <input type="text" tabindex="8" class="form-control" id="inputEndereco">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="inputNumero" class="form-label">Número</label>
+                                    <input type="text" tabindex="9" class="form-control" id="inputNumero">
+                                </div>
+
+                                <div class="col-md-9 mb-3">
+                                    <label for="inputCidade" class="form-label">Cidade</label>
+                                    <input type="text" tabindex="10" class="form-control" id="inputCidade">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="inputCidade" class="form-label">UF</label>
+                                    <input type="text" tabindex="11" class="form-control" id="inputCidade">
+                                </div>
+
+                                <!--contato-->
+                                <div class="mb-4 mt-25"><h4> Contato </h4></div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="inputFone" class="form-label">Telefone</label>
+                                    <input type="tel" tabindex="12" class="form-control" id="inputFone">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="inputCel" class="form-label">Celular</label>
+                                    <input type="tel" tabindex="13" class="form-control" id="inputCel">
+                                </div>
+                                <div class="col-md-12 mt-25 text-center">
+                                    <button type="button" value="Salvar" onclick="alertSalvarTutor()" class="btn btn-lg theme-btn"> Salvar </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--Formulário pet-->
+            <div class="tab-pane" id="pet">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form id="cadastroPet" class="row" action="#" method="post">
+                            <!--pet-->
+                            <div id="meusPets"></div>
+                            <input type="button" id="addPet" value="adicionar pet" class="btn btn-sm theme-btn">
+                            <!--tabela pets-->
+                            <div class="row justify-content-center">
+                                <div class="col-md-12 mt-30">
+                                    <table class="table table-condensed table-striped">
+                                        <thead class="table-secondary">
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Nome</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- demo 1 -->
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <td class="tit-empresa">Nina</td>
+                                                <td class="acoes">
+                                                    <a href="#"><i class="fas fa-edit" title="Editar"></i></a>
+                                                    <a href="#" class="remove"><i class="fas fa-trash-alt" title="Excluir"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

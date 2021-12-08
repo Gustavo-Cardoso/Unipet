@@ -1,0 +1,179 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Usuario> SingInManeger
+@inject UserManager<Usuario> UserManager
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+
+<!doctype html>
+<html class="no-js" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>UNIPET - @ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="~/css/bootstrap-5.0.5-alpha.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="~/css/LineIcons.2.0.css">
+    <link rel="stylesheet" href="~/css/animate.css">
+    <link rel="stylesheet" href="~/css/tiny-slider.css">
+    <link rel="stylesheet" href="~/css/main.css">
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p>You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+    <!-- ========================= header ========================= -->
+    <header id="home" class="header">
+        <div class="header-wrapper">
+            <!-- social header -->
+            <div class="header-top theme-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="header-top-left text-center text-md-left">
+                                <ul>
+                                    <li><a href="mailto:unipet.etec@gmail.com"><i class="fas fa-envelope"></i>unipet.etec@gmail.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="header-top-right d-none d-md-block">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                    <li>
+                                        <a asp-area="Identity" asp-page="/Account/Login">
+                                            <i class="fas fa-user-lock" title="Acesso Restrito"></i>
+                                        </a>                                      
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- navbar -->
+            <div class="navbar-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <nav class="navbar navbar-expand-lg">
+                                <a class="navbar-brand" asp-controller="Home" asp-action="Index"> <img src="@Url.Content("~/img/logo.svg")" alt="Unipet"></a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarindex"
+                                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="toggler-icon"></span>
+                                    <span class="toggler-icon"></span>
+                                    <span class="toggler-icon"></span>
+                                </button>
+
+                                <div class="collapse navbar-collapse sub-menu-bar" id="navbarindex">
+                                    <ul id="nav" class="navbar-nav ml-auto">
+                                        <li class="nav-item @(ViewBag.Title == "Sobre" ? "active" : "")"> <a asp-controller="Home" asp-action="Sobre"> Sobre </a></li>
+                                        <li class="nav-item @(ViewBag.Title == "Parceiros" ? "active" : "")"> <a asp-controller="Home" asp-action="Parceiros"> Parceiros </a></li>
+                                        <li class="nav-item @(ViewBag.Title == "Planos" ? "active" : "")"> <a asp-controller="Home" asp-action="Planos"> Planos </a></li>
+                                        <li class="nav-item @(ViewBag.Title == "Área de cobertura" ? "active" : "")"> <a asp-controller="Home" asp-action="AreaCobertura"> Área de cobertura </a></li>
+                                        <li class="nav-item @(ViewBag.Title == "Dúvidas" ? "active" : "")"> <a asp-controller="Home" asp-action="Duvidas"> Dúvidas </a></li>
+                                        <li class="nav-item @(ViewBag.Title == "Contato" ? "active" : "")"> <a asp-controller="Home" asp-action="Contato"> Contato </a></li>
+                                        <li id="nav-mobile" class="nav-item"> <a asp-controller="Home" asp-action="Login"> <i class="fas fa-user" style="padding-right: 5px;"></i> Login </a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end navbar -->
+
+        @RenderBody()
+
+        <!-- ========================= footer start ========================= -->
+        <footer class="footer" style="background-image:url(@Url.Content("~/img/footer-bg.jpg"));">
+            <div class="container">
+                <div class="footer-widget-wrapper">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-5 col-md-6">
+                            <div class="footer-widget mt-30">
+                                <a class="logo" asp-controller="Home" asp-action="Index"> <img src="@Url.Content("~/img/logo-pb.svg")" alt="Unipet"></a>
+                                <p>Seu Marketplace de saúde animal.</p>
+                                <div class="footer-social-links">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/etec.comendadorjoaorays" target="_blank"><i class="lni lni-facebook-filled"></i></a></li>
+                                        <li><a href="#"><i class="lni lni-instagram-original"></i></a></li>
+                                        <li><a href="#"><i class="lni lni-youtube"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-6">
+                            <div class="footer-widget mb-30">
+                                <h4>A Unipet</h4>
+                                <ul class="footer-links">
+                                    <li><a asp-controller="Home" asp-action="Sobre">Sobre</a></li>
+                                    <li><a asp-controller="Home" asp-action="Planos">Planos</a></li>
+                                    <li><a asp-controller="Home" asp-action="AreaCobertura">Área de cobertura</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-5">
+                            <div class="footer-widget mb-30">
+                                <h4>Saiba mais</h4>
+                                <ul class="footer-links">
+                                    <li><a asp-controller="Home" asp-action="Parceiros"> Parceiros </a></li>
+                                    <li><a asp-controller="Home" asp-action="Duvidas"> Dúvidas </a></li>
+                                    <li><a asp-controller="Home" asp-action="Contato"> Contato </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-12 col-md-7">
+                            <div class="footer-widget mb-30">
+                                <h4>Localização</h4>
+                                <div class="map-canvas">
+                                    <iframe class="map" id="gmap_canvas"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.397277127893!2d-48.548360285041994!3d-22.489272985225725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c7459baabaa92b%3A0xd1b954a115160672!2sEtec%20Comendador%20Jo%C3%A3o%20Rays!5e0!3m2!1spt-BR!2sbr!4v1637491590372!5m2!1spt-BR!2sbr"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright-area">
+                    <p class="mb-0 text-center">
+                        Copyright © 2021 Todos os direitos reservados |
+                        Desenvolvido por <a asp-controller="Home" asp-action="GrupoUnipet"> Grupo Unipet </a> |
+                        Este modelo é feito por <a href="https://uideck.com/" rel="nofollow">UIdeck</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <!-- ========================= footer end ========================= -->
+        <!-- ========================= scroll-top ========================= -->
+        <a href="#" class="scroll-top">
+            <i class="lni lni-arrow-up"></i>
+        </a>
+
+        <!-- ========================= JS here ========================= -->
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+        <script src="~/js/cadastro.js"></script>
+        <script src="~/js/alertas.js"></script>
+
+        <script src="~/js/bootstrap.bundle-5.0.0.alpha-min.js"></script>
+        <script src="~/js/wow.min.js"></script>
+        <script src="~/js/tiny-slider.js"></script>
+        <script src="~/js/main.js"></script>
+
+        @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

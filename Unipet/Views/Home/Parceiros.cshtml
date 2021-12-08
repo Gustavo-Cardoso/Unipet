@@ -1,0 +1,128 @@
+﻿@{
+    ViewData["Title"] = "Parceiros";
+}
+        <!-- divisao -->
+        <div class="slider-wrapper">
+            <section class="slider-section">
+                <div class="slider-active slick-style">
+                    <div class="img-interna" style="background-image:url(@Url.Content("~/img/divisao.jpg"));"></div>
+                </div>
+            </section>
+        </div>
+	</header>
+
+    <!--================== Faça parte da Unipet =================== -->
+    <section id="services" class="service-section mt-55">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 mx-auto">
+                    <div class="section-title text-center mb-55">
+                        <span class="wow fadeInDown" data-wow-delay=".2s"> Faça parte do maior </span>
+                        <h2 class="mb-15 wow fadeInUp" data-wow-delay=".4s"> Marketplace de Saúde Animal do Brasil </h2>
+
+                        <p class="wow fadeInUp mt-25" data-wow-delay=".6s">
+                            Aumente a visibilidade do seu negócio e fidelize clientes com a Unipet.
+                        </p>
+                        <a asp-controller="Home" asp-action="Contato" class="btn theme-btn wow fadeInUp mt-25" data-wow-delay=".8s">
+                            Quero incluir o meu negócio
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- cards -->
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item text-center mb-30">
+                        <div class="service-icon mb-25"> <i class="fas fa-file-signature"></i> </div>
+                        <div class="service-content">
+                            <h4> Cadastro rápido e fácil </h4>
+                        </div>
+                        <div class="service-overlay img-bg"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item text-center mb-30">
+                        <div class="service-icon mb-25"> <i class="far fa-eye"></i> </div>
+                        <div class="service-content">
+                            <h4> Maior visibilidade </h4>
+                        </div>
+                        <div class="service-overlay img-bg"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item text-center mb-30">
+                        <div class="service-icon mb-25"> <i class="fas fa-people-arrows"></i> </div>
+                        <div class="service-content">
+                            <h4> + fluxo e periodicidade </h4>
+                        </div>
+                        <div class="service-overlay img-bg"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item text-center mb-30">
+                        <div class="service-icon mb-25"> <i class="fas fa-handshake"></i> </div>
+                        <div class="service-content">
+                            <h4> + oportunidades de negócios </h4>
+                        </div>
+                        <div class="service-overlay img-bg"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item text-center mb-30">
+                        <div class="service-icon mb-25"> <i class="fas fa-money-bill-wave"></i> </div>
+                        <div class="service-content">
+                            <h4> Diminuição da inadimplência </h4>
+                        </div>
+                        <div class="service-overlay img-bg"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item text-center mb-30">
+                        <div class="service-icon mb-25"> <i class="fas fa-smile-beam"></i> </div>
+                        <div class="service-content">
+                            <h4> Indeciso? <br /> Fale conosco! </h4>
+                        </div>
+                        <div class="service-overlay img-bg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== Logos Parceiros ===================== -->
+    <section id="about" class="about-section mt-55">
+        <div class="shape shape-2">
+            <img src="@Url.Content("~/img/shapes/shape-2.svg")" alt="">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 col-lg-11 mx-auto">
+                    <div class="about-content text-center mb-55">
+                        <div class="section-title">
+                            <h2 class="wow fadeInUp" data-wow-delay=".4s">Quem já está conosco</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- slider logos -->
+            <div class="row align-items-center mb-55">
+                <div class="container rounded">
+                    <div class="slider">
+                        <div class="logos">
+                            @foreach (var parceiro in ViewBag.Empresas)
+                            {
+                                <img src="@Url.Content("~/" + parceiro.Logotipo)" alt="" />
+                            }
+                        </div>
+                        <div class="logos">
+                            @foreach (var parceiro in ViewBag.Empresas)
+                            {
+                                <img src="@Url.Content("~/" + parceiro.Logotipo)" alt="" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

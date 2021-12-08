@@ -1,0 +1,63 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Cadastre-se";
+}
+
+<section class="mt-55 mb-55">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 contents">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="mb-4">
+                            <h3><strong>Cadastre-se!</strong></h3>
+                            <p class="mb-4">Tenha acesso ao maior portal de busca de planos de saúde Pet.</p>
+                        </div>
+                        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                            <div class="form-group mb-2">
+                                <label asp-for="Input.Email"></label>
+                                <input asp-for="Input.Email" class="form-control" />
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-1">
+                                <label asp-for="Input.Password"></label>
+                                <input asp-for="Input.Password" class="form-control" />
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-1">
+                                <label asp-for="Input.ConfirmPassword"></label>
+                                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-lg theme-btn" onclick="criarConta()">Criar Conta</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img class="img-login" src="@Url.Content("~/img/shapes/register.svg")" />
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script type="text/javascript">
+        let mensagemErro = '';
+        $(".validation-summary-errors ul li").each(function () {
+            mensagemErro = $(this).text() + '<br/>';
+        });
+        if (mensagemErro != '')
+            swal.fire(
+                'Acesso negado',
+                mensagemErro,
+                'error'
+            );  
+    </script>
+}

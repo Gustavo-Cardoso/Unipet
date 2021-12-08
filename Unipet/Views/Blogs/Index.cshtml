@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Unipet.Models.Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+            <!--card Boas Vindas-->
+            <div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
+                <div class="inner">
+                    <div class="app-card-body p-3 p-lg-4">
+                        <h3 class="mb-3">Blog</h3>
+                        <div class="row gx-5 gy-3">
+                            <div class="col-12 col-lg-12">
+                                <p>
+                                    <a class="btn app-btn-primary" asp-action="Create">
+                                        <i class="fas fa-plus" style="margin-right: 8px"></i> Adicionar Publicação
+                                    </a>
+                                </p>
+                            </div>
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Titulo)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DataPublicacao)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ExibirHome)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Titulo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DataPublicacao)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ExibirHome)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.IdPublicacao" title="Editar" style="padding-right: 5px"><i class="fas fa-edit"></i></a> |
+                                            <a asp-action="Details" asp-route-id="@item.IdPublicacao" title="Ver detalhes" style="padding: 0 5px"><i class="fas fa-eye"></i></a> |
+                                            <a asp-action="Delete" asp-route-id="@item.IdPublicacao" title="Excluir" style="padding: 0 5px"><i class="fas fa-trash-alt"></i></a>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

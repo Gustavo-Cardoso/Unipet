@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Unipet.Models.Plano>
+<!-- =================== tabela dos planos =================== -->
+<section id="tab-planos" class="mt-55 mb-55">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 ">
+                <table class="table table-condensed table-striped">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Empresa</th>
+                            <th scope="col">Planos</th>
+                            <th scope="col" class="text-center">Valor (mensal)</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @if (Model.Count() == 0)
+                        {
+                            <tr><td colspan="5" class="text-center">Nenhum resultado encontrado com os filtros selecionados</td></tr>
+                        }
+                        else
+                        {
+                            @foreach (var plano in Model)
+                            {
+                                <tr>
+                                    <td data-toggle="collapse" data-target="@("#demo" + plano.IdPlano)" class="accordion-toggle">
+                                        <button class="btn"><i class="far fa-eye"></i></button>
+                                    </td>
+                                    <td class="tit-empresa">@plano.Empresa.RazaoSocial</td>
+                                    <td>@plano.NomePlano</td>
+                                    <td class="text-center">@plano.Valor.ToString("N2")</td>
+                                    <td class="text-center">
+                                        <a asp-controller="Home" asp-action="ContratoPlano" class="btn btn-success"> Contratar </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="hiddenRow">
+                                        <div id="@("demo" + plano.IdPlano)" class="accordian-body collapse">
+                                            <h6 class="text-primary">Descrição</h6>
+                                            <p class="text-dark"> @plano.Descricao </p>
+                                            <h6 class="text-primary" style="margin-top: 15px">Especialidades</h6>
+                                            <p class="text-dark"> @string.Join(",", plano.EspecialidadesPlanos.Select(ep => ep.Especialidade.NomeEspecialidade)) </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

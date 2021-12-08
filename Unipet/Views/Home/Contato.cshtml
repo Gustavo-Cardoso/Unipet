@@ -1,0 +1,151 @@
+﻿@model Unipet.Models.Contato
+@{
+    ViewData["Title"] = "Contato";
+}
+
+<!-- divisao -->
+<div class="slider-wrapper">
+    <section class="slider-section">
+        <div class="slider-active slick-style">
+            <div class="img-interna" style="background-image:url(@Url.Content("~/img/divisao.jpg"));"></div>
+        </div>
+    </section>
+</div>
+	</header>
+
+<!--====================== formulário ========================= -->
+<section class="service-section mt-55">
+    <div class="container">
+        <div class="row">
+            <p class="text-center">
+                Seu contato é muito importante para nós. <br />
+                Preencha os dados solicitados abaixo para nos enviar sua mensagem.
+            </p>
+
+            <div class="contact-form bg-light mt-100">
+                <div class="contact-image">
+                    <img src="@Url.Content("~/img/contact.jpg")">
+                </div>
+
+                <form id="formContato" asp-action="Create" asp-controller="Contatos" method="post" data-ajax="true"
+                      data-ajax-method="post" data-ajax-complete="completed" data-ajax-failure="failed">
+                    <div asp-validation-summary="ModelOnly" class="text-danger" hidden></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Nome:</label>
+                                <input asp-for="Nome" class="form-control" />
+                                <span asp-validation-for="Nome" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Assunto: </label>
+                                <input asp-for="Assunto" class="form-control" />
+                                <span asp-validation-for="Assunto" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Telefone: <i>(opcional)</i></label>
+                                <input asp-for="Telefone" class="form-control" />
+                                <span asp-validation-for="Telefone" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmpresa" class="form-label">Celular: <i>(opcional)</i></label>
+                                <input asp-for="Celular" class="form-control" />
+                                <span asp-validation-for="Celular" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">E-mail:</label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="inputEmpresa" class="form-label">Mensagem:</label>
+                                <textarea asp-for="Mensagem" name="" class="form-control" style="width: 100%; height: 267px;"></textarea>
+                                <span asp-validation-for="Mensagem" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button type="submit" value="Enviar Mensagem" onclick="alertContato()" class="btn btn-lg theme-btn"> Enviar </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--====================== fale com nós ======================== -->
+<section class="fale service-section mt-55 mb-55">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"> <i class="fas fa-map-marker-alt"></i> Endereço </h5>
+                        <p class="card-text">
+                            Rua Ludovico Victório, 2140 <br />
+                            Vila Habitacional <br />
+                            Barra Bonita - SP <br />
+                            CEP: 17340-000
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"> <i class="fas fa-headset"></i> Telefone </h5>
+                        <p class="card-text">
+                            (14) 3641-1310 <br />
+                            Horário de atendimento: <br />
+                            De segunda a sexta-feira <br />
+                            das 9h às 18h <br />
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"> <i class="fas fa-envelope"></i> E-mail </h5>
+                        <p class="card-text">
+                            unipet.etec@gmail.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+        completed = function (xhr) {
+            swal({
+                title: "Obrigado!",
+                text: "Agradecemos o seu contato e retornaremos em breve!",
+                icon: "success",
+                button: "OK"
+                
+            });
+            document.getElementById("formContato").reset();
+        }
+        failed = function (xhr) {
+            swal({
+                title: "Problemas ao Enviar!",
+                text: "Ocorreu um problema no envio de sua mensagem! Por favor, tente novamente mais tarde.",
+                icon: "warning",
+                button: "OK"
+            });
+        }
+    </script>
+}

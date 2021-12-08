@@ -1,0 +1,115 @@
+﻿@model Unipet.Models.Pet
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="app-wrapper">
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+            <div class="app-card alert alert-dismissible shadow-sm mb-4" role="alert">
+                <div class="inner">
+                    <div class="app-card-body p-3 p-lg-4">
+                        <a asp-action="Index" style="padding-left: 20px; float: right"> <i class="fas fa-reply"></i> Voltar</a>
+                        <h4 class="mb-3">Editar pet</h4>
+                        <div class="row gx-5 gy-3">
+                            <div class="col-lg-12 mt-3">
+                                <form asp-action="Edit">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12 mb-3">
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <input type="hidden" asp-for="IdPet" />
+                                            <div class="form-group">
+                                                <label asp-for="NomePet" class="control-label"></label>
+                                                <input asp-for="NomePet" class="form-control" />
+                                                <span asp-validation-for="NomePet" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-xs-12 mb-3">
+                                            <div class="form-group">
+                                                <label asp-for="DataNascimento" class="control-label"></label>
+                                                <input asp-for="DataNascimento" class="form-control" />
+                                                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-xs-12 mb-3">
+                                            <div class="form-group">
+                                                <label asp-for="Sexo" class="control-label"></label>
+                                                <input asp-for="Sexo" class="form-control" />
+                                                <span asp-validation-for="Sexo" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-xs-12 mb-3">
+                                            <div class="form-group">
+                                                <label asp-for="Foto" class="control-label"></label>
+                                                <input asp-for="Foto" class="form-control" />
+                                                <span asp-validation-for="Foto" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--next-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12 mb-3">
+                                            <div class="form-group">
+                                                <label asp-for="IdTutor" class="control-label">Tutor</label>
+                                                <select asp-for="IdTutor" class="form-control" asp-items="ViewBag.IdTutor"></select>
+                                                <span asp-validation-for="IdTutor" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12 mb-3">
+                                            <div class="form-group">
+                                                <label asp-for="IdEspecie" class="control-label">Espécie</label>
+                                                <select asp-for="IdEspecie" class="form-control" asp-items="ViewBag.IdEspecie"></select>
+                                                <span asp-validation-for="IdEspecie" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12 mb-3">
+                                            <div class="form-group">
+                                                <label asp-for="IdRaca" class="control-label">Raça</label>
+                                                <select asp-for="IdRaca" class="form-control" asp-items="ViewBag.IdRaca"></select>
+                                                <span asp-validation-for="IdRaca" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12 mb-3">
+                                            <div class="form-group">
+                                                <label asp-for="IdPorte" class="control-label">Porte</label>
+                                                <select asp-for="IdPorte" class="form-control" asp-items="ViewBag.IdPorte"></select>
+                                                <span asp-validation-for="IdPorte" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Ativo?-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12 mt-4 mb-5">
+                                            <div class="form-group form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" asp-for="ExibirHome" /> @Html.DisplayNameFor(model => model.ExibirHome)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="form-group">
+                                            <input type="submit" value="Salvar" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

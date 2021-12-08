@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Unipet.Models.AreaCobertura>
+
+<!-- =================== tabela das áreas =================== -->
+<section id="tab-planos" class="mt-55 mb-55">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <table class="table table-condensed table-striped">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th scope="col" class="text-center">Cidade</th>
+                            <th scope="col" class="text-center">Empresa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var area in Model)
+                        {
+                            <tr>
+                                <td class="text-center">@area.Municipio.NomeMunicipio</td>
+                                <td class="text-center">@area.Empresa.RazaoSocial</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

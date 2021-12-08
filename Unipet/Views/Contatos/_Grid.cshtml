@@ -1,0 +1,55 @@
+﻿@model Unipet.Services.PaginatedList<Unipet.Models.Contato>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"
+                   data-ajax="true" data-ajax-method="get" data-ajax-update="#Grid" data-ajax-mode="replace"
+                   data-ajax-url="@Url.Action("GetGrid", "Contatos", new { sortOrder = ViewBag.NameSortParm, searchString = ViewBag.CurrentFilter })">
+                    Nome
+                    @if (ViewBag.NameSortParm == null)
+                    {<i class="fas fa-arrow-up"></i>}
+                    @if (ViewBag.NameSortParm == "name_desc")
+                    {<i class="fas fa-arrow-down"></i>}
+                </a>
+            </th>
+            <th>E-mail</th>
+            <th>Assunto</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assunto)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<div class="text-center mt-3">
+    @{
+        var prevDisable = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    }
+    <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)"
+       data-ajax="true" data-ajax-method="get" data-ajax-update="#Grid" data-ajax-mode="replace"
+       data-ajax-url="@Url.Action("GetGrid", "Contatos", new { pageNumber = Model.PageIndex - 1, searchString = ViewBag.CurrentFilter})"
+       class="btn btn-light @prevDisable">
+        Anterior
+    </a>
+    <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)"
+       data-ajax="true" data-ajax-method="get" data-ajax-update="#Grid" data-ajax-mode="replace"
+       data-ajax-url="@Url.Action("GetGrid", "Contatos", new { pageNumber = Model.PageIndex + 1, searchString = ViewBag.CurrentFilter})"
+       class="btn btn-light @nextDisabled">
+        Próxima
+    </a>
+</div>

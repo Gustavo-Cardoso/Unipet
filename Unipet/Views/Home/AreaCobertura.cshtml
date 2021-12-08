@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Unipet.Models.AreaCobertura>
+@{
+    ViewData["Title"] = "AreaCobertura";
+}
+<!-- divisao -->
+<div class="slider-wrapper">
+    <section class="slider-section">
+        <div class="slider-active slick-style">
+            <div class="img-interna" style="background-image:url(@Url.Content("~/img/divisao.jpg"));"></div>
+        </div>
+    </section>
+</div>
+	</header>
+
+<!--======================== filtros ========================== -->
+<section id="filtros" class="service-section mt-55">
+    <div class="container">
+
+        <form id="filtrosForm" class="row justify-content-center">
+            <div class="col-lg-8">
+                <label for="inputCidade" class="form-label">Cidade</label>
+                <div class="input-group">
+                    <input class="form-control" type="search" id="inputCidade" name="inputCidade" placeholder="Todas">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-success border" type="button" onclick="submitFiltros()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<div id="partialView">
+    <partial name="_AreasGrid" model="Model" />
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+
+        $("#filtrosForm").submit(function (evt) {
+            evt.preventDefault();
+            submitFiltros();
+        });
+
+        function submitFiltros() {
+            var data = $("#filtrosForm").serialize();
+            $.ajax({
+                type: 'GET',
+                url: '/Home/_AreasGrid',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+                data: data,
+                success: function (result) {
+                    $("#partialView").html(result);
+                },
+                error: function () {
+                    alert('Failed to receive the Data');
+                    console.log('Failed ');
+                }
+            })
+        }
+
+    </script>
+}

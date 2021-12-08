@@ -1,0 +1,242 @@
+﻿@model Unipet.Models.Tutor
+@{
+    ViewData["Title"] = "ContratoPlano";
+}
+
+<!-- divisao -->
+<div class="slider-wrapper">
+    <section class="slider-section">
+        <div class="slider-active slick-style">
+            <div class="img-interna" style="background-image:url(@Url.Content("~/img/divisao.jpg"));"></div>
+        </div>
+    </section>
+</div>
+	</header>
+
+<!--========================= cadastro =========================== -->
+<section class="mt-55 mb-55">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="mb-4">
+                    <p> Humano, você está a alguns passos de adquirir o melhor plano de saúde para seu pet! </p>
+                </div>
+            </div>
+
+            <div class="col-md-10 text-center p-0 mt-1 mb-2">
+                <div id="form">
+                    <ul id="progressbar">
+                        <li class="active" id="step1"><strong>Meus dados</strong></li>
+                        <li id="step2"><strong>Meus pets</strong></li>
+                        <li id="step3"><strong>Meus planos</strong></li>
+                        <li id="step4"><strong>Enviado para análise</strong></li>
+                    </ul>
+                    <div class="progress">
+                        <div class="progress-bar"></div>
+                    </div> <br>
+
+                    <!-- Etapa 1 -->
+                    <fieldset>
+                        <form id="cadastroCliente" class="row" action="#" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger" hidden></div>
+                            <div class="row text-left">
+                                <div class="mb-4 mt-25"><h4> Dados Pessoais </h4></div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Nome</label>
+                                    <input asp-for="NomeTutor" tabindex="1" class="form-control placeholder" placeholder="Fernando Lorenzo Rodrigues">
+                                    <span asp-validation-for="NomeTutor" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">E-mail</label>
+                                    <input asp-for="Email" tabindex="2" class="form-control placeholder" placeholder="fernando.rodrigues@hotmail.com">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">CPF</label>
+                                    <input asp-for="CPF" tabindex="3" class="form-control placeholder" placeholder="805.036.428-35">
+                                    <span asp-validation-for="CPF" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">RG</label>
+                                    <input asp-for="RG" tabindex="4" class="form-control placeholder" placeholder="31.877.606-6">
+                                    <span asp-validation-for="RG" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Gênero</label>
+                                    <select id="inputGenero" tabindex="5" class="form-select placeholder">
+                                        <option>Selecione</option>
+                                        <option>F</option>
+                                        <option selected>M</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-4 mt-25"><h4> Endereço </h4></div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">CEP</label>
+                                    <input type="text" tabindex="6" class="form-control placeholder" placeholder="17350-000">
+                                    <span asp-validation-for="IdEndereco" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Bairro</label>
+                                    <input type="text" tabindex="7" class="form-control placeholder" placeholder="Jardim da Barra">
+                                    <span asp-validation-for="IdEndereco" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-9 mb-3">
+                                    <label class="form-label">Logradouro</label>
+                                    <input type="text" tabindex="8" class="form-control placeholder" placeholder="Rua Santo Gatto">
+                                    <span asp-validation-for="IdEndereco" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Número</label>
+                                    <input type="text" tabindex="9" class="form-control placeholder" placeholder="25">
+                                    <span asp-validation-for="IdEndereco" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-9 mb-3">
+                                    <label class="form-label">Cidade</label>
+                                    <input type="text" tabindex="10" class="form-control placeholder" placeholder="Barra Bonita">
+                                    <span asp-validation-for="IdEndereco" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">UF</label>
+                                    <input type="text" tabindex="11" class="form-control placeholder" placeholder="SP">
+                                    <span asp-validation-for="IdEndereco" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-4 mt-25"><h4> Contato </h4></div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Telefone</label>
+                                    <input asp-for="Fone" tabindex="12" class="form-control placeholder" placeholder="(14) 3964-2127">
+                                    <span asp-validation-for="Fone" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="inputCel" class="form-label">Celular</label>
+                                    <input asp-for="Celular" tabindex="13" class="form-control placeholder" placeholder="(14) 98783-6149">
+                                    <span asp-validation-for="Celular" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </form>
+                        <a href="#" name="next-step" class="btn next-step" value="Avançar">Avançar</a>
+                    </fieldset>
+
+                    <!-- Etapa 2 -->
+                    <fieldset>
+                        <div class="row text-left">
+                            <div class="row justify-content-center">
+                                <form id="cadastroDoPet" class="row" action="#" method="post">
+                                    <!--pet-->
+                                    <div id="meusPets" class="mb-25 mt-25"></div>
+                                    <input type="button" id="addPet" value="incluir mais pet" class="btn btn-plano theme-btn">
+                                </form>
+
+                                <!--tabela pets-->
+                                <div class="col-lg-8 mt-25">
+                                    <table class="table table-condensed table-striped mt-15 mb-25">
+                                        <thead class="table-secondary">
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Nome</th>
+                                                <th scope="col">Raça</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- demo 1 -->
+                                            <tr>
+                                                <td scope="col"></td>
+                                                <td class="tit-NomePet">Thor</td>
+                                                <td class="tit-RacaPet">Pastor Alemão</td>
+                                                <td class="acoes">
+                                                    <a href="#"><i class="fas fa-edit" title="Editar"></i></a>
+                                                    <a href="#" class="remove"><i class="fas fa-trash-alt" title="Excluir"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" name="next-step" class="btn next-step" value="Avançar">Avançar</a>
+                        <input type="button" name="previous-step" class="previous-step" value="voltar" />
+                    </fieldset>
+
+                    <!-- Etapa 3 -->
+                    <fieldset>
+                        <div class="row text-left">
+                            <div class="container-fluid my-5 d-flex justify-content-center">
+                                <div class="col-md-8 card">
+                                    <div class="card-body">
+                                        <div class="row justify-content-between mb-3">
+                                            <div class="col-auto"><h6 class="color-1 mb-0 change-color"> Solicitação </h6></div>
+                                            <div class="col-auto"><small> código: 1KAU9-84UIL </small></div>
+                                        </div>
+
+                                        <div class="col">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="media">
+                                                        <div class="row my-auto flex-md-row">
+                                                            <div class="col-md-5 my-auto"><h6> PET BRONZE </h6></div>
+                                                            <div class="col-md-4 my-auto"> <small> Estima Pet </small></div>
+                                                            <div class="col-md-3 my-auto"> <h6>R$ 49.00</h6> </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-4">
+                                            <div class="col">
+                                                <div class="row justify-content-between">
+                                                    <div class="col-auto">
+                                                        <p class="mb-1 text-dark"><b>Incluir Pets</b></p>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
+                                                            <label class="form-check-label" for="inlineCheckbox1">Thor</label>
+                                                        </div>
+                                                        @*<div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                                            <label class="form-check-label" for="inlineCheckbox2">Rex</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                                                            <label class="form-check-label" for="inlineCheckbox3">Bolinha</label>
+                                                        </div>*@
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer">
+                                        <div class="row justify-content-between">
+                                            <div class="col-auto my-auto">
+                                                <h4 class="mb-0 font-weight-bold text-white">TOTAL:</h4>
+                                            </div>
+                                            <div class="col-auto my-auto ml-auto">
+                                                <h3 class="display-3">R$ 49,00 <span style="color: #ffffff; font-size: 12px">mensais</span></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" name="next-step" class="btn next-step" value="Concluir">Concluir</a>
+                        <input type="button" name="previous-step" class="previous-step" value="voltar" />
+                    </fieldset>
+
+                    <!-- Etapa 4 -->
+                    <fieldset>
+                        <div class="finish mt-25">
+                            <h2 class="text-center"><strong>Obrigado pelo seu pedido!</strong></h2>
+                            <p> Ele foi enviado com sucesso para nosso parceiro, que entrará em contato em breve com você.</p>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

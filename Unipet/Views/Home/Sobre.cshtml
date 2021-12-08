@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Sobre";
+    int i = 1;
+}
+
+<!-- divisao -->
+<div class="slider-wrapper">
+    <section class="slider-section">
+        <div class="slider-active slick-style">
+            <div class="img-interna" style="background-image:url(@Url.Content("~/img/divisao.jpg"));"></div>
+        </div>
+    </section>
+</div>
+	</header>
+
+<!--====================== missão e visão ====================== -->
+<section>
+    <div id="valores" class="row">
+        <div class="col-md-6 valores single-blog wow fadeInUp" data-wow-delay=".2s">
+            <img src="@Url.Content("~/img/banner-missao.jpg")" alt="Nossa Missão">
+        </div>
+        <div class="col-md-6 valores single-blog wow fadeInUp" data-wow-delay=".8s">
+            <img src="@Url.Content("~/img/banner-visao.jpg")" alt="Nossa Visão">
+        </div>
+    </div>
+</section>
+
+<!--======================== sobre nós ======================== -->
+<section id="sobre-nos" class="about-section mt-55">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-11 col-lg-11 mx-auto">
+                <div class="about-content">
+                    <p>
+                        Somos uma plataforma web de Planos de Saúde Pet idealizada com muito
+                        carinho por pessoas que amam animais.
+                    </p>
+                    <p>
+                        Reunimos diversos planos para que você possa pesquisar, comparar e analisar,
+                        tornando mais fácil escolher a melhor opção que atenda sua necessidade.
+                    </p>
+                    <p>
+                        Garantindo assim que seu Pet aproveite cada momento ao seu lado com muita
+                        saúde e qualidade de vida.
+                    </p>
+                    <p> A aquisição é on-line, fácil, rápida e sem burocracia. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--========================= relatos ========================= -->
+<section class="testimonial text-center mt-25">
+    <div class="container">
+        <div class="section-title text-center mb-25">
+            <span class="wow fadeInDown" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">
+                Como a Unipet melhorou a vida dos Pets e de suas famílias
+            </span>
+        </div>
+
+        <div id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+
+            <div class="carousel-inner" role="listbox">
+                @foreach (var relato in ViewBag.Relatos)
+                {
+                    <div class="carousel-item item @(i == 1 ? "active" : "")">
+                        <div class="testimonial4_slide">
+                            <img src="@Url.Content("~/" + relato.Foto)" class="img-circle img-responsive" />
+                            <p>@relato.Texto</p>
+                            <h4>@relato.Nome</h4>
+                        </div>
+                    </div>
+                    i += 1;
+                }
+            </div>
+            <a class="carousel-control-prev" href="#testimonial4" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#testimonial4" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+</section>

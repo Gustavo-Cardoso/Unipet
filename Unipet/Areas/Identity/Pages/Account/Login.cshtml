@@ -1,0 +1,67 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+<section class="mt-55 mb-55">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 contents">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="mb-4">
+                            <h3>Olá, <strong>seja bem-vindo!</strong></h3>
+                            <p class="mb-4">Tenha acesso ao maior portal de busca de planos de saúde Pet.</p>
+                        </div>
+                        <form id="account" method="post">
+                            <div asp-validation-summary="All" hidden></div>
+                            <div class="form-group mb-2">
+                                <label asp-for="Input.Email">Usuário</label>
+                                <input asp-for="Input.Email" class="form-control" />
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-1">
+                                <label asp-for="Input.Password">Senha</label>
+                                <input asp-for="Input.Password" class="form-control" />
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+                            <div class="d-flex mb-4 align-items-center">
+                                <span class="ml-auto">
+                                    <a id="forgot-password" class="forgot-pass link-thema" asp-page="./ForgotPassword">Esqueci minha senha</a>
+                                </span>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn theme-btn btn-login">Entrar</button>
+                            </div>
+                            <span class="d-block text-center my-4">
+                                <a class="link-thema" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Ainda não tem conta? Cadastre-se</a>
+                            </span>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img class="img-login" src="@Url.Content("~/img/shapes/login.svg")" />
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script type="text/javascript">
+        let mensagemErro = '';
+        $(".validation-summary-errors ul li").each(function () {
+            mensagemErro = $(this).text() + '<br/>';
+        });
+        if (mensagemErro != '')
+            swal.fire(
+                'Acesso negado',
+                mensagemErro,
+                'error'
+            );
+    </script>
+}
